@@ -1,0 +1,315 @@
+:root{
+    color-scheme: light;
+}
+
+html, body{
+    background: linear-gradient(135deg, #ff6fa5, #ffb08a);
+    color: white;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:
+    linear-gradient(135deg,#ff758c,#ff7eb3,#ffc371)
+    ;
+
+       font-family:Arial,sans-serif;
+} 
+     .welcome-screen{
+        text-align:center;
+        color:white;
+     }
+   h1{
+    font-size:60px;
+    margin-bottom:20px;
+   }
+  h2{
+    font-size:24px;
+    margin-bottom:40px;
+  }  
+         button{
+            padding:15px 35px;
+            font-size:20px;
+            border:none;
+            border-radius:50px;
+            background:white;
+            color:#ff4b7d;
+            cursor:pointer;
+            transition:.3s;
+         }  
+            
+         button:hover{
+            transform:scale(1.1);
+         }  
+         .fade-in{
+    animation: fadeIn 1.5s ease;
+         }
+
+h1.fade-in{
+    color: white;
+    text-shadow: 0 0 10px rgba(255,255,255,.35);
+}
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}    
+     .heart{
+    position:fixed;
+    bottom:-20px;
+    color:red;
+    font-size:25px;
+    animation:floatUp 6s linear infinite;
+}
+
+@keyframes floatUp{
+    from{
+        transform:translateY(0);
+        opacity:1;
+    }
+
+    to{
+        transform:translateY(-110vh);
+        opacity:0;
+    }
+}
+      .birthday-photo{
+    width:280px;
+    max-width:90%;
+    border-radius:25px;
+    padding:8px;
+    background:white;
+    margin-top:20px;
+    box-shadow:0 0 25px rgba(255,255,255,.5);
+    transition:all .8s ease;
+    animation:photoFloat 4s ease-in-out infinite;
+}
+
+.fade{
+    opacity:0;
+    transform:scale(.9);
+}
+
+@keyframes photoFloat{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-10px);
+    }
+}
+@media (max-width: 480px){
+
+    h1{
+        font-size:34px;
+    }
+
+    h2{
+        font-size:18px;
+    }
+
+    button{
+        width:90%;
+        font-size:18px;
+        padding:15px;
+    }
+
+    .birthday-photo{
+        width:180px;
+        max-width:75%;
+    }
+
+}
+.verification-screen{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    text-align:center;
+}
+
+#birthdayInput{
+    padding:12px;
+    font-size:16px;
+    border-radius:10px;
+    border:none;
+    margin-top:15px;
+} 
+    .welcome-screen{
+        display:none;
+    }
+    /* ===== Premium Countdown ===== */
+
+#countdown{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:15px;
+    flex-wrap:wrap;
+    margin-top:30px;
+}
+
+.time-box{
+    width:85px;
+    height:95px;
+    background:rgba(255,255,255,0.18);
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+    border:1px solid rgba(255,255,255,0.35);
+    border-radius:20px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.25);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    transition:0.3s;
+    animation:floatCard 3s ease-in-out infinite;
+}
+
+.time-box:hover{
+    transform:translateY(-8px) scale(1.05);
+    box-shadow:0 12px 35px rgba(255,255,255,0.35);
+}
+
+.time-box span{
+    font-size:32px;
+    font-weight:bold;
+    color:#fff;
+    text-shadow:0 0 12px rgba(255,255,255,.8);
+}
+
+.time-box p{
+    margin-top:6px;
+    font-size:13px;
+    color:#fff;
+    text-transform:uppercase;
+    letter-spacing:1px;
+}
+
+@keyframes floatCard{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-6px);
+    }
+}
+
+@media(max-width:480px){
+
+    #countdown{
+        gap:10px;
+    }
+
+    .time-box{
+        width:70px;
+        height:80px;
+    }
+
+    .time-box span{
+        font-size:26px;
+    }
+
+    .time-box p{
+        font-size:11px;
+    }
+}
+.welcome-screen{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:20px;
+    min-height:100vh;
+    position: reletive;
+    z-index: 2;
+}
+
+.birthday-photo{
+    margin-bottom:25px;
+}
+
+#typingMessage{
+    max-width:650px;
+    font-size:18px;
+    line-height:1.5;
+    color:white;
+    margin-top:15px;
+    padding:0 15px;
+    max-width:500px;
+}
+#balloons{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.balloon{
+    position: absolute;
+    bottom: -100px;
+    width: 40px;
+    height: 55px;
+    border-radius: 50%;
+    animation: fly 8s linear infinite;
+    z-index: 1;
+}
+
+.balloon::after{
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 40px;
+    background: white;
+    left: 50%;
+    top: 55px;
+}
+
+@keyframes fly{
+    from{
+        transform: translateY(0);
+    }
+    to{
+        transform: translateY(-120vh);
+    }
+} 
+#signature {
+    opacity: 0;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 16px;
+    color: white;
+    font-style: italic;
+    transition: opacity 1.5s ease;
+} 
+@media (max-width: 600px) {
+    #typingMessage{
+        font-size:17px;
+        line-height:1.5;
+    }
+
+    #signature{
+        font-size:15px;
+    }
+}
