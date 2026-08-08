@@ -48,20 +48,25 @@ btn.addEventListener("click", function () {
         } else {
 
             clearInterval(timer);
+document.querySelector(".welcome-screen").innerHTML = `
 
-            document.querySelector(".welcome-screen").innerHTML = `
+<img id="slider" src="Images/photo.jpg" class="birthday-photo">
 
-            <img id="slider" src="Images/photo.jpg" class="birthday-photo">
+<h1 class="fade-in">🎂 Happy Birthday , PANDA! ❤️</h1>
 
-            <audio autoplay loop>
-                <source src="Music/Happy Birthday song.mp3" type="audio/mpeg">
-            </audio>
+<p id="typingMessage" class="fade-in" style="font-size:24px;margin-top:20px;"></p>
+<p id="signature">Made with❤️ by Manish</p>
+`;
 
-            <h1 class="fade-in">🎂 Happy Birthday , PANDA! ❤️</h1>
+const music = document.createElement("audio");
+music.id = "birthdayMusic";
+music.src = "Music/Happy Birthday song.mp3";
+music.loop = true;
+music.autoplay = true;
+document.body.appendChild(music);
 
-            <p id="typingMessage" class="fade-in" style="font-size:24px;margin-top:20px;"></p>
-            <p id="signature">Made with❤️ by Manish</p>
-            `;
+music.play().catch(() => {});
+            
 setTimeout(() => {
     confetti({
         particleCount: 150,
@@ -150,7 +155,7 @@ function startSlider() {
 }
 function typeMessage() {
 
-    const text = " 💖 I made this surprise just to make you smiling.keep smiling, Happy Birthday once again!🎂";
+    const text = "";
 
     let i = 0;
 
@@ -161,10 +166,82 @@ function typeMessage() {
         if (i < text.length) {
             target.innerHTML += text.charAt(i);
             i++;
-        } else {
-            clearInterval(typing);
-            document.getElementById("signature").style.opacity = "1";
-        }
+       } else {
+    clearInterval(typing);
+    document.getElementById("signature").style.opacity = "1";
+
+    const nextBtn = document.createElement("button");
+    nextBtn.innerHTML = "Next ❤️";
+    nextBtn.className = "next-btn";
+
+   nextBtn.onclick = function () {
+    const style = document.createElement("style");
+
+style.innerHTML = `
+    .final-surprise {
+        width: 100%;
+        height: 100vh;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 15px;
+        overflow: hidden;
+    }
+
+    .final-photo {
+        width: auto;
+        height: 48vh;
+        max-width: 85%;
+        object-fit: contain;
+        border-radius: 20px;
+    }
+
+    .final-title {
+        margin: 10px 0 5px;
+        color: white;
+        font-size: 28px;
+    }
+
+    .final-message {
+        margin: 0;
+        max-width: 90%;
+        color: white;
+        font-size: 18px;
+        line-height: 1.4;
+    }
+`;
+
+document.head.appendChild(style);
+
+document.head.appendChild(style);
+
+    const welcome = document.querySelector(".welcome-screen");
+
+    welcome.innerHTML = `
+        <div class="final-surprise">
+
+            <img src="Images/panda-birthday.jpg" class="final-photo">
+
+            <h2 class="final-title">
+                Panda ❤️
+            </h2>
+
+            <p class="final-message">
+                Ye chhota sa surprise sirf tumhare liye hai ❤️<br>
+                Bas ek wish hai... hamesha aise hi smile karti rehna. 🐼✨
+            </p>
+
+        </div>
+    `;
+
+    welcome.style.display = "flex";
+};
+
+    document.getElementById("typingMessage").appendChild(nextBtn);
+}
 
     }, 35);
 
