@@ -306,7 +306,7 @@ h1.fade-in{
 @media (max-width: 600px) {
     #typingMessage{
         font-size:17px;
-        line-height:1.5;
+        line-height:1.25;
     }
 
     #signature{
